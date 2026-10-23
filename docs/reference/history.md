@@ -8,6 +8,7 @@ What happened to the software, newest first. One line per event; link to more if
 
 | Date | What |
 | --- | --- |
+| 2026-10-23 | Docs kept in step with the code automatically: a nightly GitHub Action regenerates the reference pages and keeps a `docs-drift` issue listing pages to review. Every page now shows its reviewed date. First run passed. |
 | 2026-10-23 | Docs site created (`acn-docs`). Newsroom `staging` promoted to `main` and deployed to both hosts: events page, component refactor, article caching, cleaner slugs, lighter homepage. |
 | 2026-10-22 | Newsroom tried on Cloudflare Workers via OpenNext; shelved on the `cloudflare` branch. |
 | 2026-10-22 | Newsroom slugs cleaned up: Hepburn for Japanese kana, whole-word cuts, transliteration kept server-side. |

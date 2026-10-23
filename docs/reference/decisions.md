@@ -10,6 +10,12 @@ To add one: copy the shape below, newest at the top, and date it. Don't delete o
 
 ---
 
+### 2026-10-23 · The docs check themselves against the code every night
+
+**Decision.** A GitHub Action (`.github/workflows/sync.yml`) runs nightly and on every push. It regenerates the reference pages from the code, and keeps one `docs-drift` issue listing hand-written pages whose code changed since their `reviewed:` date.
+**Why.** A separate docs repo isn't connected to the code, and nobody remembers to update docs. This way the code drives the docs, and drift shows up as a to-do list instead of going unnoticed.
+**Instead of.** Updating docs by hand when someone remembers; failing builds on drift (too noisy, and it would block deploys).
+
 ### 2026-10-23 · Docs live in their own repo and site
 
 **Decision.** Long-form documentation lives in `acn-docs`, published with VitePress on Cloudflare Workers, public but excluded from search engines. Code repos keep only `README.md`, `AGENTS.md`/`CLAUDE.md` and code-coupled files.
