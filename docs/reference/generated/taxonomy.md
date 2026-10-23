@@ -1,6 +1,6 @@
 ---
-generated: 2026-10-22T01:40:22+08:00
-source: newsroom origin/main@02d770f
+generated: 2026-10-23T16:31:03+08:00
+source: newsroom origin/main@6ccfbab
 ---
 
 # Sectors and industries
@@ -9,7 +9,7 @@ source: newsroom origin/main@02d770f
 
 The classification ACN uses on press releases and companies. **Sector** is the broad group; **industry** is the narrower one inside it. In the old database the columns are one level off: `sector_type` is the sector and `sector_name` is the industry.
 
-**9 sectors, 76 industries.** Source: [src/lib/sectors.ts](https://github.com/krischan-acn/newsroom/blob/02d770f/src/lib/sectors.ts), read through `src/lib/taxonomy.ts`.
+**9 sectors, 76 industries.** Source: [src/lib/sectors.ts](https://github.com/krischan-acn/newsroom/blob/6ccfbab/src/lib/sectors.ts), read through `src/lib/taxonomy.ts`.
 
 ### Business (8)
 
