@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Glossary
 
 Three columns: what we say at ACN, what the code and the API call it, and what it actually means. If you are an AI reading this, **use the first column when talking to staff**.

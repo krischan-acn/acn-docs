@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Undo a bad deploy
 
 A new version went live and something broke. The quickest fix is to put the previous version back from the host's dashboard. That takes seconds, needs no code, and you can fix the code calmly afterwards.

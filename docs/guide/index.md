@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Staff guide
 
 For everyone at ACN who uses the admin or looks after what readers see on the newsroom. No code, no jargon. When a word is unfamiliar, the [glossary](/start/glossary) explains it.

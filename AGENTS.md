@@ -19,13 +19,14 @@ Synced from the ACN knowledge base `PRINCIPLES.md` on 2026-10-23. If they disagr
 3. **Never hand-edit `docs/reference/generated/`.** Run `npm run gen` (it reads `../newsroom-main` and `../acn-admin` from git; see `docs/build/docs-site.md`).
 4. **Mermaid:** use only `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, `erDiagram` and `gantt`, so diagrams render on GitHub as well.
 5. **Date facts that go stale** ("as of 2026-10-23"). Prefer linking a generated page over restating what it lists.
-6. **New page means a sidebar entry** in `config.mts`.
+6. **New page means a sidebar entry** in `config.mts`, and a `reviewed: YYYY-MM-DD` frontmatter date. When you re-check a page against the code, bump its date.
 7. **Commit as the machine's git identity.** Never invent an author from a first name.
 
 ## Before you say you're done
 
 ```bash
 npm run build    # must pass; it fails on dead internal links
+npm run check    # lists pages that may no longer match the code
 ```
 
 Add a line to `docs/reference/history.md` if something happened to the software, and to `docs/reference/decisions.md` if a decision was made.

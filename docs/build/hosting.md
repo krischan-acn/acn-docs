@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Hosting and deploys
 
 Every site deploys itself when code is pushed to GitHub. There are no deploy scripts to run and no servers to log into.

@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Newsroom
 
 Next.js 16 (App Router, React Server Components), React 19, Tailwind CSS 4, TypeScript. The public press release site.

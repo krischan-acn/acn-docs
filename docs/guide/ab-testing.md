@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Design voting (A/B)
 
 A hidden tool built into the newsroom that lets ACN staff compare two versions of a design and vote for the one they prefer. Readers never see it.

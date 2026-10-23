@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # How we work
 
 These rules apply to every person and every AI working on ACN's software. They come from the [ACN knowledge base](https://github.com/krischan-acn/ACN-knowledge-base/blob/main/PRINCIPLES.md), which is the original; if the two ever disagree, the knowledge base wins.

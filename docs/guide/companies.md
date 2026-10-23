@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Companies
 
 There are about 9,600 companies. All of them load into the list at once, so search and filters cover everything, not just the page you're on.

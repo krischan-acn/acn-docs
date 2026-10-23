@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # The API is down
 
 ## What you'll see

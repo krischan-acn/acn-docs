@@ -1,0 +1,105 @@
+# Keeps the docs in step with the code, without anyone remembering to.
+#
+# Every night, and on every push to this repo, it:
+#   1. checks out this repo, the newsroom and the admin side by side;
+#   2. runs `npm run gen` and commits the reference pages if the code changed;
+#   3. runs `npm run check` and keeps one GitHub issue, labelled docs-drift,
+#      listing pages whose code changed since they were last reviewed.
+#      The issue closes itself when the list is empty.
+#
+# Its own commits are pushed with GITHUB_TOKEN, which GitHub never lets
+# trigger another workflow run, so it can't loop. Cloudflare still sees the
+# push and redeploys the site.
+#
+# Run it by hand: GitHub → Actions → "Sync docs with code" → Run workflow.
+
+name: Sync docs with code
+
+on:
+  schedule:
+    - cron: '0 18 * * *'   # 18:00 UTC = 02:00 in Manila/Singapore
+  push:
+    branches: [main]
+  workflow_dispatch:       # the "Run workflow" button
+
+# What GITHUB_TOKEN may do in this repo: push the regenerated pages, manage the issue.
+permissions:
+  contents: write
+  issues: write
+
+# Never two runs at once; a second one waits its turn.
+concurrency:
+  group: docs-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # The three repos, in the same folder layout the scripts expect locally.
+      # fetch-depth: 0 brings full history, which the drift check needs, and
+      # every branch as origin/<name>, which is what the scripts read.
+      - name: Check out acn-docs
+        uses: actions/checkout@v4
+        with:
+          path: acn-docs
+          fetch-depth: 0
+
+      - name: Check out the newsroom
+        uses: actions/checkout@v4
+        with:
+          repository: s-ging/newsroom
+          path: newsroom-main
+          fetch-depth: 0
+
+      - name: Check out the admin
+        uses: actions/checkout@v4
+        with:
+          repository: s-ging/acn-admin
+          path: acn-admin
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # The scripts only use Node and git, so no npm install is needed.
+      - name: Regenerate reference pages
+        working-directory: acn-docs
+        run: node scripts/generate.mjs
+
+      - name: Commit them if anything changed
+        working-directory: acn-docs
+        run: |
+          git add docs/reference/generated
+          if git diff --cached --quiet; then
+            echo "Reference pages already match the code."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "reference: regenerate from the code"
+            git push
+          fi
+
+      - name: Check for drift
+        working-directory: acn-docs
+        run: node scripts/check-drift.mjs --out "$RUNNER_TEMP/drift.md"
+
+      # One open issue at most. Problems → create it or update its text.
+      # No problems → close it with a note.
+      - name: Update the docs-drift issue
+        working-directory: acn-docs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create docs-drift --color BFD4F2 --description "Docs pages that may no longer match the code" --force
+          issue=$(gh issue list --label docs-drift --state open --json number --jq '.[0].number')
+          if grep -q "Nothing to do" "$RUNNER_TEMP/drift.md"; then
+            if [ -n "$issue" ]; then
+              gh issue close "$issue" --comment "Docs and code agree again (run $GITHUB_RUN_ID)."
+            fi
+          elif [ -n "$issue" ]; then
+            gh issue edit "$issue" --body-file "$RUNNER_TEMP/drift.md"
+          else
+            gh issue create --title "Docs drift: pages to review" --label docs-drift --body-file "$RUNNER_TEMP/drift.md"
+          fi

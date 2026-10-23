@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # The admin won't save
 
 First: **your edits are almost certainly safe.** The admin keeps them in your browser until they've reached the newswire and been checked. The one exception is "storage is full", below.

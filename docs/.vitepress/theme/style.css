@@ -173,3 +173,24 @@ a.acn-cta.alt:hover { background: #bbbbbb; }
   .acn-lede { font-size: 17px; }
   a.acn-button { min-height: 132px; }
 }
+
+/* "Reviewed 23 Oct 2026 · History" above every page title */
+.acn-stamp {
+  font-size: 12px;
+  color: var(--acn-muted);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--acn-rule);
+}
+.acn-stamp-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 4px;
+  color: var(--acn-ink);
+}
+.acn-stamp code { font-size: 11px; background: var(--acn-fill); padding: 1px 4px; }
+.acn-stamp-sep { margin: 0 6px; }
+.acn-stamp a { color: var(--acn-muted); border-bottom: 1px solid var(--acn-rule); }
+.acn-stamp a:hover { color: var(--acn-accent); }

@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Runbooks
 
 When something is wrong: what you'll see, what to check, what to do. Each one starts with steps anyone can follow, and gets more technical further down.

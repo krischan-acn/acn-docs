@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Ask Claude
 
 You don't have to read this whole site. Claude can read it for you and answer in plain words.

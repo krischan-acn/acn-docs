@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Set up
 
 For developers, from a blank machine to all three projects running locally. Read [how we work](/start/principles) before changing anything.

@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # How saving works in the admin
 
 The admin has two kinds of saving. Knowing the difference stops almost every "where did my change go?" moment.

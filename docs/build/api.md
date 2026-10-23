@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # The ACN API
 
 The newsroom and the admin both read from `https://development.acnnewswire.com`. Despite the name, it is the production data source. It's a .NET / EF Core service over SQL Server on an Azure VM, built and run by a separate API team. Its code is not in our repositories.

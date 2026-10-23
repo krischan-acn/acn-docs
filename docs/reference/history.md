@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # History
 
 What happened to the software, newest first. One line per event; link to more if there is more. Never rewrite an old entry; add a new one.

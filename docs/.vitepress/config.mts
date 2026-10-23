@@ -20,7 +20,9 @@ export default withMermaid(defineConfig({
   title: 'ACN Docs',
   description: 'How the ACN Newswire newsroom and admin work, how to use them, and how to keep them running.',
   cleanUrls: true,
-  lastUpdated: true,
+  // Off: Cloudflare builds from a shallow clone, where git dates are wrong. Pages
+  // carry their own date instead; see theme/PageStamp.vue.
+  lastUpdated: false,
   appearance: false, // light only, like both apps
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],

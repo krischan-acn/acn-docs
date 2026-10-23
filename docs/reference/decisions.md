@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Decisions
 
 Why the software is the way it is. Read before "fixing" any of these ([Chesterton's fence](/start/principles#chesterton-s-fence)). Newest first. Client-level decisions live in the knowledge base's `decisions/` folder.

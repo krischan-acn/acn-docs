@@ -1,3 +1,7 @@
+---
+reviewed: 2026-10-23
+---
+
 # Admin
 
 Vite 8, React 19, TypeScript 6, React Router 7, TanStack Query, Zustand, TipTap 3 (rich text), Univer (spreadsheet). Plain CSS classes in `src/components/ui/ui.css`; Tailwind is installed but not the idiom. The package is still named `acn-portal`.
