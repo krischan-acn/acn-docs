@@ -1,0 +1,12 @@
+// Cloudflare Workers config. There is no Worker code: this only serves the
+// built site as static files. Cloudflare's Git integration runs
+// `npm run build`, then `npx wrangler deploy`, on every push to main.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "acn-docs",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./docs/.vitepress/dist",
+    "not_found_handling": "404-page"
+  }
+}

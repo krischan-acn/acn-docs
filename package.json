@@ -1,0 +1,21 @@
+{
+  "name": "acn-docs",
+  "version": "1.0.0",
+  "description": "ACN Newswire documentation: newsroom and admin",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "gen": "node scripts/generate.mjs",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "type": "module",
+  "devDependencies": {
+    "mermaid": "^11.17.2",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-llms": "^1.14.0",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "wrangler": "^4.152.0"
+  },
+  "private": true
+}

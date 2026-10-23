@@ -1,0 +1,175 @@
+/*
+ * The house voice of both ACN apps, applied to VitePress:
+ * flat and square, hairline rules instead of cards, weightless Inter display
+ * type in pure black, one muted blue, large plain buttons. Weight belongs only
+ * to small uppercase labels.
+ */
+
+:root {
+  --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --vp-font-family-mono: 'SF Mono', 'Fira Code', Consolas, monospace;
+
+  --acn-accent: #2088c9;
+  --acn-ink: #000000;
+  --acn-body: #333333;
+  --acn-muted: #8a8a8a;
+  --acn-rule: #e5e5e5;
+  --acn-rule-strong: #0a0a0a;
+  --acn-fill: #f7f7f7;
+
+  --vp-c-brand-1: var(--acn-accent);
+  --vp-c-brand-2: #1a72a8;
+  --vp-c-brand-3: var(--acn-accent);
+  --vp-c-brand-soft: rgba(32, 136, 201, 0.08);
+
+  --vp-c-text-1: var(--acn-ink);
+  --vp-c-text-2: var(--acn-body);
+  --vp-c-text-3: var(--acn-muted);
+  --vp-c-divider: var(--acn-rule);
+  --vp-c-gutter: var(--acn-rule);
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #ffffff;
+  --vp-c-bg-soft: var(--acn-fill);
+  --vp-code-bg: var(--acn-fill);
+  --vp-code-color: var(--acn-ink);
+
+  --vp-button-brand-bg: #333333;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-hover-bg: #000000;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-alt-bg: #eeeeee;
+  --vp-button-alt-text: #000000;
+  --vp-button-alt-hover-bg: #bbbbbb;
+
+  --vp-custom-block-tip-bg: var(--acn-fill);
+  --vp-custom-block-info-bg: var(--acn-fill);
+  --vp-custom-block-warning-bg: #fff8e7;
+  --vp-custom-block-danger-bg: #ffe7e7;
+}
+
+/* Square, everywhere. Rounding is not part of this visual language. */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+body {
+  letter-spacing: -0.3px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display type carries no weight. */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--acn-ink);
+}
+.vp-doc h1 { font-size: 40px; line-height: 1.15; margin-bottom: 24px; }
+.vp-doc h2 { font-size: 26px; border-top: 1px solid var(--acn-rule-strong); padding-top: 20px; margin-top: 56px; }
+.vp-doc h3 { font-size: 19px; }
+.vp-doc p,
+.vp-doc li { color: var(--acn-body); line-height: 1.75; }
+.vp-doc strong { color: var(--acn-ink); font-weight: 600; }
+
+/* Weight lives only on micro-labels. */
+.VPSidebarItem.level-0 > .item > .text,
+.VPSidebarItem.level-0 > .item > .link > .text {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--acn-muted) !important;
+}
+.VPSidebarItem.level-0 { padding-bottom: 20px; }
+.VPSidebarItem .text { font-weight: 400; }
+.VPSidebarItem.is-active > .item .link > .text { color: var(--acn-ink); font-weight: 500; }
+.VPSidebarItem.is-active > .item > .indicator { background-color: var(--acn-ink); width: 3px; }
+
+/* Hairline tables. */
+.vp-doc table { display: table; width: 100%; border-collapse: collapse; }
+.vp-doc tr { background: none !important; border-top: 1px solid var(--acn-rule); }
+.vp-doc th,
+.vp-doc td { border: none; border-bottom: 1px solid var(--acn-rule); padding: 10px 12px 10px 0; vertical-align: top; }
+.vp-doc th {
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--acn-muted); background: none; border-bottom: 1px solid var(--acn-rule-strong);
+}
+
+.vp-doc a { text-decoration: none; border-bottom: 1px solid rgba(32, 136, 201, 0.35); }
+.vp-doc a:hover { border-bottom-color: var(--acn-accent); }
+
+.custom-block { border-left: 3px solid var(--acn-rule-strong); border-top: none; border-right: none; border-bottom: none; }
+.custom-block.warning { border-left-color: #a37301; }
+.custom-block.danger { border-left-color: #df1b1b; }
+.custom-block .custom-block-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.VPNavBar .title { font-weight: 400; letter-spacing: -0.02em; }
+.VPNavBarMenuLink { font-weight: 400 !important; }
+
+/* Mermaid sits on the page, not in a card. */
+.vp-doc .mermaid { margin: 28px 0; padding: 24px 0; border-top: 1px solid var(--acn-rule); border-bottom: 1px solid var(--acn-rule); text-align: center; }
+.vp-doc .mermaid foreignObject { overflow: visible; }
+
+/* ── Big buttons ─────────────────────────────────────────────────────────
+   Large, plain, impossible to miss. Use in markdown:
+   <div class="acn-buttons"><a class="acn-button" href="/guide/">...</a></div> */
+
+.acn-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  border-top: 1px solid var(--acn-rule-strong);
+  border-left: 1px solid var(--acn-rule);
+  margin: 32px 0 48px;
+}
+.vp-doc a.acn-button,
+a.acn-button {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 168px;
+  padding: 20px 22px 22px;
+  border: none;
+  border-right: 1px solid var(--acn-rule);
+  border-bottom: 1px solid var(--acn-rule);
+  color: var(--acn-ink);
+  background: #ffffff;
+  transition: background 0.08s, color 0.08s;
+}
+a.acn-button:hover { background: #333333; color: #ffffff; }
+a.acn-button:hover .acn-button-text,
+a.acn-button:hover .acn-button-no { color: #d4d4d4; }
+.acn-button-no { font-family: var(--vp-font-family-mono); font-size: 12px; color: var(--acn-muted); letter-spacing: 0.04em; }
+.acn-button-title { font-size: 24px; line-height: 1.2; letter-spacing: -0.02em; margin-top: auto; }
+.acn-button-text { font-size: 14px; line-height: 1.5; color: var(--acn-body); }
+.acn-button-title::after { content: '  →'; color: var(--acn-accent); }
+
+/* One loud button, for the single main action on a page. */
+.vp-doc a.acn-cta,
+a.acn-cta {
+  display: inline-block;
+  padding: 16px 28px;
+  font-size: 18px;
+  background: #333333;
+  color: #ffffff;
+  border: none;
+  margin: 8px 12px 8px 0;
+}
+a.acn-cta:hover { background: #000000; color: #ffffff; }
+a.acn-cta.alt { background: #eeeeee; color: #000000; }
+a.acn-cta.alt:hover { background: #bbbbbb; }
+
+/* Home page masthead */
+.acn-masthead { padding: 24px 0 8px; }
+.acn-kicker { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--acn-muted); }
+.vp-doc .acn-masthead h1 { font-size: 56px; line-height: 1.05; margin: 12px 0 16px; border: none; }
+.acn-lede { font-size: 20px; line-height: 1.6; color: var(--acn-body); max-width: 640px; }
+
+@media (max-width: 640px) {
+  .vp-doc .acn-masthead h1 { font-size: 40px; }
+  .acn-lede { font-size: 17px; }
+  a.acn-button { min-height: 132px; }
+}
